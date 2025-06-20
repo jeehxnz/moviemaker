@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# React Movie Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + TypeScript app to search and display movies using the TMDB API, styled with Tailwind CSS, and tracks search analytics with Appwrite.
 
-Currently, two official plugins are available:
+## Features
+- 🔍 **Search Movies**: Search through thousands of movies via TMDB API.
+- 🎬 **Movie Cards**: Responsive, modern movie card UI.
+- 📊 **Search Analytics**: Tracks search terms and counts using Appwrite.
+- ⚡ **Debounced Search**: Reduces API calls for a smoother UX.
+- 🎨 **Tailwind CSS**: Custom design with utility-first CSS.
+- 🟣 **TypeScript**: Type-safe React components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+1. **Clone the repository**  
+   ```bash
+   git clone <your-repo-url>
+   cd <your-repo-folder>
+   ```
+2. **Install dependencies**  
+   ```bash
+   npm install
+   ```
+3. **Environment Variables**  
+   Create a `.env` file in the root with the following:
+   ```
+   VITE_TMDB_API_KEY=<your_tmdb_api_key>
+   VITE_APPWRITE_ENDPOINT=<your_appwrite_endpoint>
+   VITE_APPWRITE_PROJECT_ID=<your_appwrite_project_id>
+   VITE_APPWRITE_DATABASE_ID=<your_appwrite_database_id>
+   VITE_APPWRITE_COLLECTION_ID=<your_appwrite_collection_id>
+   ```
+4. **Start the development server**  
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) to view the app.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Project Structure
+```
+src/
+├── components/        # Reusable UI components
+├── hooks/             # Custom React hooks
+├── pages/             # Route components
+├── services/          # API clients (TMDB & Appwrite)
+├── App.tsx            # Root component
+└── main.tsx           # Entry point
+public/
+└── index.html
+tailwind.config.js
+tsconfig.json
+.env
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Customization
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Styling
+Tailwind CSS is used with custom layers and utility classes in `index.css`.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Appwrite Integration
+Update `src/services/appwrite.ts` with your Appwrite endpoint and ensure your environment variables are set.
+
+## Scripts
+- `npm run dev` — Start development server  
+- `npm run build` — Build for production  
+- `npm run preview` — Preview production build  
+
+## Credits
+- [TMDB API](https://developers.themoviedb.org/)  
+- [Appwrite](https://appwrite.io/)  
+- [Tailwind CSS](https://tailwindcss.com/)  
+
+## License
+MIT
+
+Happy coding! 🎬
